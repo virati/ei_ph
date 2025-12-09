@@ -82,9 +82,8 @@ class PortHamiltonianEINetwork:
         # Interaction energy (analogous to potential energy)
         interaction_term = (
             0.5 * self.w_EE * x_E**2 +
-            self.w_EI * x_E * x_I +
-            0.5 * self.w_II * x_I**2 +
-            self.w_IE * x_I * x_E
+            (self.w_EI + self.w_IE) * x_E * x_I +
+            0.5 * self.w_II * x_I**2
         )
         
         return kinetic_term + interaction_term

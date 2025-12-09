@@ -159,7 +159,7 @@ def simulate_ei_network(
         x_current = x_next
     
     # Add final control (same as last)
-    u_list.append(u_list[-1] if u_list else jnp.zeros(2))
+    u_list.append(u_list[-1] if len(u_list) > 0 else jnp.zeros(2))
     
     # Convert to arrays
     x_traj = jnp.array(x_list)
